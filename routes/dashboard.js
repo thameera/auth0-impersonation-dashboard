@@ -5,7 +5,10 @@ var router = express.Router();
 
 /* GET user profile. */
 router.get('/', ensureLoggedIn, function(req, res, next) {
-  res.render('dashboard', { user: req.user });
+  if (!req.query || !req.query.id) {
+    return res.render('dashboard', { user: req.user });
+  }
+  // Generate impersonation link
 });
 
 module.exports = router;

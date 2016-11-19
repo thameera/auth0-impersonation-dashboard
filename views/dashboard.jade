@@ -1,7 +1,11 @@
 extends layout
 
 block content
-  img(src="#{user.picture}")
   h2 Welcome #{user.nickname}!
+  form(action="/dashboard",method="GET")
+    | User ID 
+    input(type="text",name="id",size="40")
+    | 
+    input(type="submit",value="Generate")
   br
   a(href='/logout') Logout
