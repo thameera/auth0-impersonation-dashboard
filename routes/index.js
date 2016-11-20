@@ -26,6 +26,10 @@ router.get('/logout', function(req, res){
 router.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
   function(req, res) {
+    if (req.user.id !== process.env.IMPERSONATOR_ID) {
+      req.logout();
+      return res.redirect('/');
+    }
     res.redirect(req.session.returnTo || '/dashboard');
   });
 
