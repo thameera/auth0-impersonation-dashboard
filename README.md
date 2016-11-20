@@ -1,11 +1,17 @@
 # Auth0 Impersonation Dashboard
 
-## How to set up
+You can either set this up locally or deploy to Heroku directly.
+
+## How to set up locally
 
 1. `npm install`
 1. Copy `.env.example` to `.env` and update configuration
 1. `npm start`
 1. The app will be served at `localhost:3003`.
+
+## Deploy to Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## License
 
