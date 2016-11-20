@@ -10,5 +10,14 @@ block content
   br
   if link
     input(type="text",readonly,id="link",value="#{link}",size="50")
+    | &nbsp;&nbsp;
+    a(href="#{link}",target="_blank") Open
+    | &nbsp;&nbsp;
+    button(type="button",class="clip",data-clipboard-target="#link") Copy
+  br
   br
   a(href='/logout') Logout
+
+  script(src="javascripts/clipboard.min.js")
+  script.
+    new Clipboard('.clip');
