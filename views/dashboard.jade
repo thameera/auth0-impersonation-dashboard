@@ -4,8 +4,11 @@ block content
   h2 Welcome #{user.nickname}!
   form(action="/dashboard",method="GET")
     | User ID 
-    input(type="text",name="id",size="40")
+    input(type="text",name="id",size="40",value="#{id}")
     | 
     input(type="submit",value="Generate")
+  br
+  if link
+    input(type="text",readonly,id="link",value="#{link}",size="50")
   br
   a(href='/logout') Logout

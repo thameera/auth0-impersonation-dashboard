@@ -43,7 +43,7 @@ var getImpersonationLink = function(token, user_id) {
 /* GET user profile. */
 router.get('/', ensureLoggedIn, function(req, res, next) {
   if (!req.query || !req.query.id) {
-    return res.render('dashboard', { user: req.user });
+    return res.render('dashboard', { user: req.user, id: '' });
   }
   // Generate impersonation link
   return getOauthToken()
@@ -51,8 +51,7 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
       return getImpersonationLink(token, req.query.id);
     })
     .then(function(link) {
-      console.log(link);
-      return res.render('dashboard', { user: req.user });
+      return res.render('dashboard', { user: req.user, id: req.query.id, link: link });
     });
 });
 
